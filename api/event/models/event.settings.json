@@ -1,15 +1,15 @@
 {
   "kind": "collectionType",
-  "collectionName": "weekly_services",
+  "collectionName": "events",
   "info": {
-    "name": "weekly-service"
+    "name": "Event"
   },
   "options": {
     "increments": true,
     "timestamps": true
   },
   "attributes": {
-    "Name": {
+    "Title": {
       "type": "string",
       "required": true,
       "unique": true
@@ -20,13 +20,22 @@
     },
     "Date": {
       "type": "date",
-      "required": true,
-      "unique": true
+      "required": true
     },
     "Time": {
       "type": "time",
-      "required": true,
-      "unique": true
+      "required": true
+    },
+    "Image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
     }
   }
 }
